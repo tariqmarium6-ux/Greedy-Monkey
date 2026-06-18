@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greedy Monkey - Endless Climber</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Childish, Playful Vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas" width="400" height="700"></canvas>
+
+        <!-- HUD (Heads-Up Display) -->
+        <div id="hud" class="hidden">
+            <div class="hud-top">
+                <div class="score-container">
+                    <span class="banana-icon">🍌</span>
+                    <span id="score-val">0</span>
+                </div>
+                <div class="banana-progress-container">
+                    <div id="banana-progress"></div>
+                    <div class="banana-progress-text"><span id="banana-count-hud">0</span>/10</div>
+                </div>
+            </div>
+            <!-- Mobile Control Overlays (for tap play) -->
+            <div id="touch-controls">
+                <div id="left-tap" class="tap-zone"></div>
+                <div id="right-tap" class="tap-zone"></div>
+            </div>
+        </div>
+
+        <!-- Start Menu Overlay -->
+        <div id="start-menu" class="overlay">
+            <div class="menu-box">
+                <h1 class="bounce-title">Greedy<br><span class="highlight">Monkey</span></h1>
+                <div class="character-preview">
+                    <!-- Simple vector-like styling of monkey logo in HTML/CSS -->
+                    <div class="monkey-logo">🐵</div>
+                </div>
+                <p class="instructions">Help the monkey climb the vines!<br>Collect 10 bananas 🍌 & avoid obstacles!</p>
+                <div class="name-entry">
+                    <input type="text" id="username-input" placeholder="Monkey Name" maxlength="15">
+                </div>
+                <button id="start-btn" class="play-btn">PLAY GAME</button>
+                <div class="settings">
+                    <button id="sound-btn" class="settings-btn">🔊 Sound: ON</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Victory Overlay -->
+        <div id="victory-menu" class="overlay hidden">
+            <div class="menu-box leaderboard-box">
+                <h1 class="bounce-title highlight">Feast Time!</h1>
+                <div class="trophy-container">
+                    <canvas id="trophyCanvas" width="130" height="130"></canvas>
+                </div>
+                <div class="end-game-stats">
+                    <div class="feedback-card" id="victory-feedback">Loading stats...</div>
+                    <div class="boards-container">
+                        <div class="board-column">
+                            <h3>Global Top 5</h3>
+                            <ol id="global-board-victory" class="board-list"></ol>
+                        </div>
+                        <div class="board-column">
+                            <h3>Personal Bests</h3>
+                            <ol id="personal-board-victory" class="board-list"></ol>
+                        </div>
+                    </div>
+                </div>
+                <button id="victory-restart-btn" class="play-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over" class="overlay hidden">
+            <div class="menu-box leaderboard-box">
+                <h2 class="game-over-title">Ouch!</h2>
+                <div class="end-game-stats">
+                    <div class="feedback-card" id="gameover-feedback">Loading stats...</div>
+                    <div class="boards-container">
+                        <div class="board-column">
+                            <h3>Global Top 5</h3>
+                            <ol id="global-board-gameover" class="board-list"></ol>
+                        </div>
+                        <div class="board-column">
+                            <h3>Personal Bests</h3>
+                            <ol id="personal-board-gameover" class="board-list"></ol>
+                        </div>
+                    </div>
+                </div>
+                <button id="restart-btn" class="play-btn">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/obstacles.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
